@@ -13,9 +13,8 @@ dependencies {
 }
 
 mainClassName = 'ohtuesimerkki.Main'
-
+apply plugin: "jacoco"
 run {
     standardInput = System.in
 }
 
-apply plugin: "jacoco"

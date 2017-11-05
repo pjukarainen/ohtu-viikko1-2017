@@ -1,5 +1,7 @@
 package ohtuesimerkki;
 
+import java.util.Objects;
+
 public class Player implements Comparable<Player> {
 
     private String name;
@@ -13,7 +15,7 @@ public class Player implements Comparable<Player> {
         this.goals = goals;
         this.assists = assists;
     }
-        
+
     public int getAssists() {
         return assists;
     }
@@ -51,12 +53,36 @@ public class Player implements Comparable<Player> {
     }
 
     @Override
-    public String toString() {      
-        return String.format("%-20s",name) + " " + team + " " + String.format("%2d",goals) + " + " 
-                + String.format("%2d",assists) + " = " + getPoints();
+    public String toString() {
+        return String.format("%-20s", name) + " " + team + " " + String.format("%2d", goals) + " + "
+                + String.format("%2d", assists) + " = " + getPoints();
     }
 
     public int compareTo(Player t) {
-        return t.getPoints()-this.getPoints();
+        return t.getPoints() - this.getPoints();
     }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null) {
+            return false;
+        }
+
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+
+        Player player = (Player) o;
+
+        return Objects.equals(this.name, player.name)
+                && Objects.equals(this.team, player.team)
+                && this.goals == player.goals
+                && this.assists == player.assists;
+    }
+
 }

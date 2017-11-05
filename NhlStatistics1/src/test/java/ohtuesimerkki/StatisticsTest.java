@@ -45,13 +45,26 @@ public class StatisticsTest {
     @AfterClass
     public static void tearDownClass() {
     }
+    Statistics stats;
 
     @Before
     public void setUp() {
+        stats = new Statistics(readerStub);
     }
 
     @After
     public void tearDown() {
+    }
+
+    @Test
+    public void loytyyOikeaPelaaja() {
+        Player player = stats.search("Kurri");
+        assertEquals(readerStub.getPlayers().get(2), player);
+    }
+
+    @Test
+    public void eiLoydyPelaajaa() {
+        assertNull(stats.search("Jorma"));
     }
 
 }
