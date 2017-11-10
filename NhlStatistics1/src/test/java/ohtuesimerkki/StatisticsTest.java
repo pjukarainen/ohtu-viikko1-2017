@@ -20,6 +20,8 @@ import static org.junit.Assert.*;
  */
 public class StatisticsTest {
 
+    Statistics stats;
+
     Reader readerStub = new Reader() {
 
         public List<Player> getPlayers() {
@@ -45,7 +47,6 @@ public class StatisticsTest {
     @AfterClass
     public static void tearDownClass() {
     }
-    Statistics stats;
 
     @Before
     public void setUp() {
